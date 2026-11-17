@@ -1,0 +1,388 @@
+
+/* ==============================
+   ADITYAVA GROUP - HOMEPAGE
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    height: 72px;
+    width: 100%;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+    position: relative;
+    z-index: 10;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 800;
+    color: #092D5B;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #092D5B;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #269B26;
+}
+
+/* MAIN HOMEPAGE */
+
+.homepage {
+    width: 100%;
+    height: calc(100svh - 72px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* HERO SECTION */
+
+.hero-stage {
+    height: 59%;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+/* CENTER GROUP LOGO */
+
+.group-section {
+    width: 48%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 3;
+}
+
+.group-logo {
+    width: 100%;
+    max-width: 590px;
+    max-height: 94%;
+    object-fit: contain;
+}
+
+/* SIDE IMAGES */
+
+.side-image {
+    position: absolute;
+    top: 3%;
+    width: 32%;
+    height: 94%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.side-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* LEFT SOLAR IMAGE */
+
+.solar-image {
+    left: 0;
+
+    border-radius: 0 65% 65% 0 / 0 50% 50% 0;
+    border-right: 5px solid #70bd45;
+}
+
+.solar-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent 45%,
+        rgba(255,255,255,0.85) 100%
+    );
+}
+
+/* RIGHT CCTV IMAGE */
+
+.technology-image {
+    right: 0;
+
+    border-radius: 65% 0 0 65% / 50% 0 0 50%;
+    border-left: 5px solid #16a8e0;
+}
+
+.technology-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        270deg,
+        transparent 45%,
+        rgba(255,255,255,0.85) 100%
+    );
+}
+
+/* COMPANIES SECTION */
+
+.companies-section {
+    height: 41%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 5px 5% 12px;
+}
+
+/* HEADING */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    margin-bottom: 8px;
+}
+
+.section-heading h1 {
+    color: #092D5B;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+
+.section-heading span {
+    width: 140px;
+    height: 2px;
+    background: #269B26;
+}
+
+/* COMPANY LOGOS */
+
+.company-logos {
+    width: 100%;
+    max-width: 850px;
+    flex: 1;
+    min-height: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr;
+
+    align-items: center;
+    justify-items: center;
+    gap: 35px;
+}
+
+.company-item {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-item img {
+    width: 100%;
+    height: 100%;
+    max-width: 340px;
+    max-height: 205px;
+
+    object-fit: contain;
+}
+
+.company-divider {
+    height: 75%;
+    width: 2px;
+    background: #269B26;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    html, body {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .navbar {
+        height: auto;
+        min-height: 85px;
+        padding: 15px 4%;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .brand {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .homepage {
+        height: auto;
+        min-height: calc(100svh - 85px);
+        overflow: visible;
+    }
+
+    .hero-stage {
+        height: 430px;
+    }
+
+    .side-image {
+        width: 27%;
+        height: 65%;
+        top: 15%;
+    }
+
+    .group-section {
+        width: 58%;
+    }
+
+    .group-logo {
+        max-height: 80%;
+    }
+
+    .companies-section {
+        height: 260px;
+        padding: 5px 3% 15px;
+    }
+
+    .section-heading {
+        gap: 10px;
+    }
+
+    .section-heading h1 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .section-heading span {
+        width: 35px;
+    }
+
+    .company-logos {
+        gap: 10px;
+    }
+
+    .company-item img {
+        max-height: 160px;
+    }
+}
+
+/* SMALL SCREENS */
+
+@media (max-height: 720px) and (min-width: 769px) {
+
+    .hero-stage {
+        height: 55%;
+    }
+
+    .companies-section {
+        height: 45%;
+    }
+
+    .section-heading h1 {
+        font-size: 23px;
+    }
+
+    .company-item img {
+        max-height: 170px;
+    }
+}
+
+/* HOMEPAGE VISUAL REFINEMENT */
+
+.solar-image {
+    border: none;
+    border-radius: 0 65% 65% 0 / 0 50% 50% 0;
+    overflow: hidden;
+}
+
+.technology-image {
+    border: none;
+    border-radius: 65% 0 0 65% / 50% 0 0 50%;
+    overflow: hidden;
+}
+
+.solar-image::after {
+    background: linear-gradient(
+        90deg,
+        transparent 60%,
+        #ffffff 100%
+    );
+}
+
+.technology-image::after {
+    background: linear-gradient(
+        270deg,
+        transparent 60%,
+        #ffffff 100%
+    );
+}
+
+.group-logo {
+    max-width: 650px;
+}
+
+.section-heading {
+    margin-top: 3px;
+}
