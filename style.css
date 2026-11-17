@@ -246,81 +246,384 @@ html, body {
     background: #269B26;
 }
 
-/* RESPONSIVE DESIGN */
+
+/* ======================================
+   ADITYAVA - MOBILE ONE SCREEN REDESIGN
+====================================== */
 
 @media (max-width: 768px) {
 
     html, body {
-        height: auto;
-        min-height: 100%;
-        overflow-x: hidden;
-        overflow-y: auto;
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important;
     }
 
+    body {
+        height: 100dvh;
+    }
+
+    /* HEADER */
+
     .navbar {
-        height: auto;
-        min-height: 85px;
-        padding: 15px 4%;
+        height: 65px;
+        min-height: 65px;
+        padding: 5px 8px;
+
+        display: flex;
         flex-direction: column;
-        gap: 14px;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
     }
 
     .brand {
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .nav-links {
-        gap: 18px;
+        gap: 14px;
+        flex-wrap: nowrap;
     }
 
     .nav-links a {
-        font-size: 12px;
+        font-size: 11px;
+        white-space: nowrap;
     }
+
+    /* HOMEPAGE */
 
     .homepage {
-        height: auto;
-        min-height: calc(100svh - 85px);
-        overflow: visible;
+        height: calc(100dvh - 65px);
+        min-height: 0;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
     }
+
+    /* HERO: LOGO + TWO PHOTOS */
 
     .hero-stage {
-        height: 430px;
-    }
+        height: 47%;
+        flex: 0 0 47%;
+        min-height: 0;
+        padding: 5px 12px;
 
-    .side-image {
-        width: 27%;
-        height: 65%;
-        top: 15%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(0, 1fr) 85px;
+        gap: 5px 10px;
+
+        overflow: hidden;
     }
 
     .group-section {
-        width: 58%;
+        grid-column: 1 / 3;
+        grid-row: 1;
+
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        z-index: 2;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .group-logo {
-        max-height: 80%;
+        width: 90%;
+        height: 100%;
+        max-width: 350px;
+        max-height: 100%;
+        object-fit: contain;
+        mix-blend-mode: multiply;
     }
 
+    /* SOLAR PHOTO */
+
+    .solar-image {
+        position: relative;
+        grid-column: 1;
+        grid-row: 2;
+
+        left: auto;
+        right: auto;
+        top: auto;
+
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    .solar-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* CCTV PHOTO */
+
+    .technology-image {
+        position: relative;
+        grid-column: 2;
+        grid-row: 2;
+
+        left: auto;
+        right: auto;
+        top: auto;
+
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    .technology-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .solar-image::after,
+    .technology-image::after {
+        content: none;
+    }
+
+    /* COMPANIES */
+
     .companies-section {
-        height: 260px;
-        padding: 5px 3% 15px;
+        height: 53%;
+        flex: 0 0 53%;
+        min-height: 0;
+
+        width: 100%;
+        padding: 5px 10px 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        overflow: hidden;
     }
 
     .section-heading {
+        flex: 0 0 auto;
+        margin: 5px 0 8px;
         gap: 10px;
     }
 
     .section-heading h1 {
-        font-size: 18px;
+        font-size: 17px;
         letter-spacing: 1px;
+        white-space: nowrap;
     }
 
     .section-heading span {
-        width: 35px;
+        width: 25px;
+        height: 2px;
+    }
+
+    /* COMPANY LOGOS */
+
+    .company-logos {
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+        max-width: 460px;
+
+        display: grid;
+        grid-template-columns: 1fr 2px 1fr;
+        align-items: center;
+        justify-items: center;
+        gap: 7px;
+
+        overflow: hidden;
+    }
+
+    .company-item {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .company-item img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 170px;
+        object-fit: contain;
+    }
+
+    .company-divider {
+        width: 2px;
+        height: 65%;
+        background: #269B26;
+    }
+}
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 340px) {
+
+    .brand {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        gap: 11px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .hero-stage {
+        grid-template-rows: minmax(0, 1fr) 75px;
+    }
+
+    .section-heading h1 {
+        font-size: 15px;
+    }
+}
+
+/* ====================================
+   MOBILE LAYOUT - VISUAL ADJUSTMENT
+==================================== */
+
+@media (max-width: 768px) {
+
+    /* HERO AREA */
+
+    .hero-stage {
+        height: 45%;
+        flex: 0 0 45%;
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(0, 1fr) 118px;
+
+        gap: 5px 8px;
+        padding: 4px 8px;
+    }
+
+    /* GROUP LOGO BIGGER */
+
+    .group-section {
+        width: 100%;
+        height: 100%;
+    }
+
+    .group-logo {
+        width: 95%;
+        max-width: 400px;
+        max-height: 96%;
+        object-fit: contain;
+        transform: scale(1.12);
+    }
+
+    /* SOLAR AND CCTV PHOTOS */
+
+    .solar-image,
+    .technology-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 14px;
+    }
+
+    .solar-image img,
+    .technology-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .solar-image img {
+        object-position: center;
+    }
+
+    .technology-image img {
+        object-position: 70% center;
+    }
+
+    /* COMPANIES AREA */
+
+    .companies-section {
+        height: 55%;
+        flex: 0 0 55%;
+        padding: 5px 8px;
+    }
+
+    .section-heading {
+        margin: 5px 0 8px;
+    }
+
+    .section-heading h1 {
+        font-size: 18px;
+    }
+
+    /* COMPANY LOGOS - MOVE UP AND ENLARGE */
+
+    .company-logos {
+        flex: 0 0 195px;
+        height: 195px;
+        width: 100%;
+        max-width: 460px;
+
+        display: grid;
+        grid-template-columns: 1fr 2px 1fr;
+        grid-template-rows: 195px;
+
+        align-items: center;
+        gap: 8px;
+        margin-top: 5px;
+    }
+
+    .company-item {
+        height: 175px;
+        width: 100%;
+    }
+
+    .company-item img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 175px;
+        object-fit: contain;
+    }
+
+    .company-divider {
+        height: 145px;
+    }
+
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 340px) {
+
+    .hero-stage {
+        grid-template-rows: minmax(0, 1fr) 105px;
     }
 
     .company-logos {
-        gap: 10px;
+        flex-basis: 180px;
+        height: 180px;
+        grid-template-rows: 180px;
+    }
+
+    .company-item {
+        height: 160px;
     }
 
     .company-item img {
@@ -328,264 +631,106 @@ html, body {
     }
 }
 
-/* SMALL SCREENS */
-
-@media (max-height: 720px) and (min-width: 769px) {
-
-    .hero-stage {
-        height: 55%;
-    }
-
-    .companies-section {
-        height: 45%;
-    }
-
-    .section-heading h1 {
-        font-size: 23px;
-    }
-
-    .company-item img {
-        max-height: 170px;
-    }
-}
-
-/* HOMEPAGE VISUAL REFINEMENT */
-
-.solar-image {
-    border: none;
-    border-radius: 0 65% 65% 0 / 0 50% 50% 0;
-    overflow: hidden;
-}
-
-.technology-image {
-    border: none;
-    border-radius: 65% 0 0 65% / 50% 0 0 50%;
-    overflow: hidden;
-}
-
-.solar-image::after {
-    background: linear-gradient(
-        90deg,
-        transparent 60%,
-        #ffffff 100%
-    );
-}
-
-.technology-image::after {
-    background: linear-gradient(
-        270deg,
-        transparent 60%,
-        #ffffff 100%
-    );
-}
-
-.group-logo {
-    max-width: 650px;
-}
-
-.section-heading {
-    margin-top: 3px;
-}
-
-/* =========================================
-   ADITYAVA GROUP - MOBILE DESIGN FIX
-   Desktop design remains unchanged
-========================================= */
+/* FINAL COMPANY SECTION ALIGNMENT - MOBILE */
 
 @media (max-width: 768px) {
 
-    html, body {
-        width: 100%;
-        height: auto;
-        min-height: 100%;
-        overflow-x: hidden;
-        overflow-y: auto;
+    .companies-section {
+        padding-top: 5px;
+        padding-bottom: 8px;
     }
 
-    /* NAVIGATION */
+    .section-heading {
+        margin: 5px 0 8px;
+    }
 
-    .navbar {
-        width: 100%;
+    .company-logos {
+        flex: 1 1 auto;
+        min-height: 0;
         height: auto;
-        min-height: 90px;
-        padding: 13px 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        margin-top: 0;
+        padding: 0;
+
         align-items: center;
-        gap: 13px;
+        justify-items: center;
     }
 
-    .brand {
-        font-size: 19px;
-        letter-spacing: 1px;
-    }
-
-    .nav-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: nowrap;
-        gap: clamp(15px, 5vw, 25px);
-    }
-
-    .nav-links a {
-        font-size: 13px;
-        white-space: nowrap;
-    }
-
-    /* MAIN HOMEPAGE */
-
-    .homepage {
-        width: 100%;
-        height: auto;
-        min-height: calc(100svh - 90px);
-        overflow: visible;
-    }
-
-    /* HERO SECTION */
-
-    .hero-stage {
-        width: 100%;
-        height: clamp(320px, 85vw, 410px);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* CENTER LOGO */
-
-    .group-section {
-        width: 66%;
+    .company-item {
         height: 100%;
-        position: relative;
-        z-index: 3;
+        min-height: 0;
+
         display: flex;
         justify-content: center;
         align-items: center;
+
+        padding: 0;
     }
 
-    .group-logo {
+    .company-item img {
         width: 100%;
-        max-width: 100%;
-        max-height: 76%;
+        height: auto;
+        max-height: 125px;
         object-fit: contain;
-        mix-blend-mode: multiply;
     }
 
-    /* SIDE IMAGES */
-
-    .side-image {
-        position: absolute;
-        top: 9%;
-        width: 35%;
-        height: 82%;
-        z-index: 1;
-        overflow: hidden;
+    .company-divider {
+        height: 55%;
+        align-self: center;
     }
+}
 
-    .side-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+/* MOBILE - COMPANY SECTION GAP FIX */
 
-    /* SOLAR */
-
-    .solar-image {
-        left: -2%;
-        border-radius: 0 70% 70% 0 / 0 50% 50% 0;
-    }
-
-    .solar-image::after {
-        background: linear-gradient(
-            90deg,
-            transparent 45%,
-            rgba(255,255,255,0.95) 100%
-        );
-    }
-
-    /* CCTV / TECHNOLOGY */
-
-    .technology-image {
-        right: -2%;
-        border-radius: 70% 0 0 70% / 50% 0 0 50%;
-    }
-
-    .technology-image::after {
-        background: linear-gradient(
-            270deg,
-            transparent 45%,
-            rgba(255,255,255,0.95) 100%
-        );
-    }
-
-    /* COMPANIES SECTION */
+@media (max-width: 768px) {
 
     .companies-section {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        padding: 18px 5% 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        height: 55%;
+        flex: 0 0 55%;
+        padding: 5px 10px;
         justify-content: flex-start;
     }
 
-    /* HEADING */
-
     .section-heading {
-        width: 100%;
-        gap: 12px;
-        margin: 0 0 20px;
-        justify-content: center;
+        margin: 5px 0 8px;
+        flex-shrink: 0;
     }
 
-    .section-heading h1 {
-        font-size: 19px;
-        letter-spacing: 1px;
-        white-space: nowrap;
-    }
-
-    .section-heading span {
-        width: 35px;
-        flex-shrink: 1;
-        height: 2px;
-    }
-
-    /* COMPANY LOGOS - VERTICAL */
+    /* STACK LOGOS VERTICALLY */
 
     .company-logos {
-        width: 100%;
-        max-width: 380px;
-        flex: none;
-        min-height: 0;
-
         display: flex;
         flex-direction: column;
+
+        width: 100%;
+        max-width: 280px;
+        flex: 1;
+        min-height: 0;
+
+        justify-content: space-evenly;
         align-items: center;
-        justify-content: center;
-        gap: 15px;
+        gap: 2px;
+        margin: 0;
+        padding: 0;
     }
 
     .company-item {
         width: 100%;
-        height: auto;
+        flex: 1;
         min-height: 0;
+        height: auto;
+
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .company-item img {
-        width: 85%;
-        height: auto;
-        max-width: 320px;
-        max-height: none;
+        width: 90%;
+        height: 100%;
+        max-width: 260px;
+        max-height: 145px;
+
         object-fit: contain;
-        display: block;
     }
 
     /* HORIZONTAL DIVIDER */
@@ -598,35 +743,3 @@ html, body {
     }
 }
 
-/* SMALL MOBILE PHONES */
-
-@media (max-width: 380px) {
-
-    .brand {
-        font-size: 17px;
-    }
-
-    .nav-links {
-        gap: 14px;
-    }
-
-    .nav-links a {
-        font-size: 11px;
-    }
-
-    .hero-stage {
-        height: 330px;
-    }
-
-    .group-section {
-        width: 68%;
-    }
-
-    .section-heading h1 {
-        font-size: 17px;
-    }
-
-    .company-item img {
-        width: 90%;
-    }
-}
